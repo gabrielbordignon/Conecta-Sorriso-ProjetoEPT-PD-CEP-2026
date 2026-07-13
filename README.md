@@ -157,20 +157,6 @@ Depois acesse [http://localhost:8000](http://localhost:8000).
 
 O mapa e a localização de endereços precisam de conexão com a internet.
 
-## Como atualizar as instituições
-
-1. Confirme as informações no site oficial ou diretamente com a instituição.
-2. Edite `dados/instituicoes.json` preservando os nomes das propriedades.
-3. Use um `id` inteiro, positivo e exclusivo.
-4. Informe latitude e longitude como números decimais.
-5. Use `true` ou `false` nos campos booleanos.
-6. Registre os atendimentos em uma lista JSON.
-7. Preencha `fonte` e `data_validacao` no formato `AAAA-MM-DD`.
-8. Use `validado: true` somente para dados devidamente confirmados.
-9. Valide a sintaxe do JSON e teste busca, filtros, mapa, distância e detalhes.
-
-Se telefone ou site não estiverem disponíveis, utilize uma string vazia. A aplicação desativa a ação correspondente e apresenta uma mensagem adequada.
-
 ## Acessibilidade
 
 O protótipo inclui:
@@ -197,31 +183,6 @@ O Conecta Sorriso foi planejado com privacidade por padrão:
 - trabalha somente com informações institucionais públicas;
 - não armazena CEP, endereço ou geolocalização pesquisados;
 - mantém a localização apenas em memória durante a sessão.
-
-## Publicação no GitHub Pages
-
-1. Crie um repositório no GitHub.
-2. Envie o conteúdo da pasta `conecta-sorriso` para a raiz do repositório.
-3. Acesse **Settings → Pages**.
-4. Em **Build and deployment**, selecione **Deploy from a branch**.
-5. Escolha a branch `main` e a pasta `/ (root)`.
-6. Salve e aguarde a publicação.
-7. Teste as páginas inicial, resultados e detalhes na URL fornecida.
-
-## Testes manuais recomendados
-
-- testar o layout nas larguras de 360, 768, 1024, 1366 e 1920 px;
-- pesquisar textos com maiúsculas, minúsculas, acentos e espaços duplicados;
-- pesquisar CEP com oito dígitos, com e sem hífen ou espaços;
-- pesquisar uma rua e verificar a ordenação por distância;
-- autorizar e negar a geolocalização;
-- combinar todos os filtros e depois limpar a pesquisa;
-- alternar entre lista e mapa no celular;
-- abrir os marcadores, detalhes, telefone, site e rota;
-- testar URLs sem `id`, com `id` inválido e inexistente;
-- navegar usando somente o teclado;
-- ativar alto contraste, alterar o texto e aplicar zoom de 200%;
-- testar o comportamento sem internet e por `file://`.
 
 ## Limitações
 
