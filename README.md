@@ -1,1 +1,0 @@
-# ProjetoPD-EPT-2026-Colegio-Estadual-do-Parana
