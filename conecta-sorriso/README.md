@@ -1,25 +1,108 @@
 # Conecta Sorriso — Rede de Acesso à Saúde Bucal
 
-Protótipo educacional responsivo para pesquisar, filtrar e visualizar no mapa serviços odontológicos de Curitiba, com foco em reabilitação oral e próteses dentárias.
+![Logotipo do Conecta Sorriso](assets/logo.png)
+
+Aplicação web responsiva que reúne e organiza informações sobre serviços odontológicos de Curitiba, com foco em reabilitação oral e próteses dentárias.
+
+O projeto foi desenvolvido no Colégio Estadual do Paraná para o **2º Desafio da Educação Profissional e Tecnológica do Paraná (EPT-PR)**, integrando conhecimentos dos cursos técnicos em **Prótese Dentária** e **Desenvolvimento de Sistemas**.
+
+> **Aviso:** o Conecta Sorriso é um protótipo educacional de orientação. Horários, vagas, critérios, valores e formas de acesso podem mudar. Confirme as informações diretamente com a instituição antes de se deslocar.
+
+## Acesse o projeto
+
+- Aplicação publicada: [Conecta Sorriso](https://conecta-sorriso.jprohnyod.chatgpt.site)
+- Instituição: [Colégio Estadual do Paraná](https://www.cep.pr.gov.br/)
+
+## Problema abordado
+
+As informações sobre Centros de Especialidades Odontológicas e clínicas-escola estão distribuídas entre portais públicos, sites institucionais e diferentes canais de atendimento. Essa dispersão dificulta que pacientes, familiares e profissionais descubram onde há atendimento para reabilitação oral, quais são os critérios de acesso e como entrar em contato.
+
+O Conecta Sorriso transforma essas informações em uma consulta única, simples, visual e georreferenciada.
+
+## Objetivo
+
+Facilitar o acesso da população a informações organizadas sobre serviços de saúde bucal relacionados à reabilitação oral com próteses dentárias em Curitiba.
+
+O protótipo procura:
+
+- localizar clínicas e serviços odontológicos;
+- apresentar os resultados em lista e mapa;
+- ordenar as instituições por proximidade;
+- informar endereço, telefone, horário e forma de acesso;
+- explicar a necessidade de encaminhamento e agendamento;
+- reduzir barreiras informacionais entre a população e os serviços disponíveis.
+
+## Público-alvo
+
+- pessoas em busca de próteses dentárias e reabilitação oral;
+- pessoas idosas, familiares e cuidadores;
+- agentes comunitários de saúde e cirurgiões-dentistas;
+- técnicos em prótese dentária e estudantes da área da saúde;
+- instituições de ensino e serviços odontológicos.
+
+## Funcionalidades
+
+- pesquisa por instituição, bairro, categoria, atendimento e forma de acesso;
+- reconhecimento de CEP com oito dígitos, com ou sem pontuação;
+- localização de endereço ou CEP e ordenação das clínicas mais próximas;
+- geolocalização opcional pelo navegador;
+- cálculo de distância geográfica pela fórmula de Haversine;
+- filtros combináveis por categoria, bairro, atendimento e encaminhamento;
+- mapa interativo com marcadores e enquadramento automático;
+- página individual com informações detalhadas de cada instituição;
+- links para ligação telefônica, site oficial e rota externa;
+- visualização responsiva para computador, tablet e celular;
+- mensagens amigáveis para erros de busca, mapa, dados e geolocalização.
 
 ## Tecnologias
 
-- HTML5 semântico;
-- CSS3 com Grid, Flexbox e media queries;
-- JavaScript puro (ES6+);
-- Leaflet.js;
-- OpenStreetMap;
-- arquivo JSON local como base de dados.
+O projeto utiliza tecnologias abertas e gratuitas:
 
-Não há login, cadastro, cookies de rastreamento, ferramentas de análise ou armazenamento de localização.
+| Camada | Tecnologia | Finalidade |
+| --- | --- | --- |
+| Interface | HTML5 | Estrutura semântica das páginas |
+| Estilos | CSS3 | Layout, responsividade e acessibilidade |
+| Comportamento | JavaScript ES6+ | Busca, filtros, geolocalização e interface |
+| Mapa | Leaflet.js | Exibição e controle do mapa interativo |
+| Cartografia | OpenStreetMap | Camada cartográfica aberta |
+| Dados | JSON | Armazenamento dos registros institucionais |
 
-## Estrutura
+Não são utilizados React, Vue, Angular, Bootstrap, Tailwind, Firebase, banco SQL, Google Maps ou APIs pagas no funcionamento da aplicação.
+
+## Como funciona a busca por proximidade
+
+1. O usuário informa uma rua, endereço ou CEP, ou autoriza a localização do dispositivo.
+2. O endereço é transformado temporariamente em coordenadas geográficas.
+3. A aplicação calcula a distância entre o ponto pesquisado e cada instituição usando a fórmula de Haversine.
+4. Os resultados são ordenados do mais próximo para o mais distante.
+5. O mapa enquadra o local pesquisado e as instituições encontradas.
+
+As coordenadas informadas pelo usuário são utilizadas somente durante a consulta e não são gravadas no arquivo JSON, em cookies ou em armazenamento local.
+
+## Base de dados
+
+Os registros ficam em [`dados/instituicoes.json`](dados/instituicoes.json). A versão atual reúne nove instituições de ensino com atendimento odontológico em Curitiba:
+
+1. UFPR — Curso de Odontologia;
+2. PUCPR — Clínica de Odontologia;
+3. Centro de Especialidades Odontológicas Positivo;
+4. Universidade Tuiuti do Paraná — Clínica de Odontologia;
+5. UniBrasil — Centro Universitário;
+6. Faculdade Herrero — Clínica de Odontologia;
+7. UniCuritiba — Centro Universitário;
+8. UniDomBosco — Centro Universitário;
+9. UniOpet Centro Universitário.
+
+As informações foram organizadas a partir do levantamento do projeto e dos sites institucionais indicados em cada registro. O banco contém nome, categoria, endereço, bairro, CEP, coordenadas, telefone, site, horário, atendimento, forma de acesso, observações, fonte e data de validação.
+
+## Estrutura de pastas
 
 ```text
 conecta-sorriso/
 ├── index.html
 ├── resultados.html
 ├── detalhes.html
+├── README.md
 ├── css/
 │   ├── style.css
 │   ├── responsive.css
@@ -35,21 +118,34 @@ conecta-sorriso/
 │   └── instituicoes.json
 └── assets/
     ├── logo.png
-    └── icons/
+    ├── icons/
+    └── vendor/
+        └── leaflet/
 ```
+
+## Responsabilidade dos arquivos JavaScript
+
+| Arquivo | Responsabilidade |
+| --- | --- |
+| `app.js` | Funções compartilhadas, leitura e validação do JSON, normalização de texto, CEP, geocodificação e Haversine |
+| `resultados.js` | Estado da pesquisa, renderização dos cartões, proximidade e integração entre busca, filtros e mapa |
+| `detalhes.js` | Carregamento e apresentação da instituição selecionada |
+| `mapa.js` | Inicialização do Leaflet, marcadores, pop-ups, enquadramento e redimensionamento |
+| `filtros.js` | Aplicação conjunta dos filtros |
+| `acessibilidade.js` | Tamanho do texto, alto contraste e navegação móvel |
 
 ## Como executar localmente
 
-O navegador pode bloquear a leitura de `dados/instituicoes.json` quando os arquivos são abertos diretamente por `file://`. Use um servidor local.
+O `fetch()` usado para carregar o JSON pode ser bloqueado quando `index.html` é aberto diretamente pelo protocolo `file://`. Execute a aplicação por um servidor local.
 
-### Opção 1 — Live Server no Visual Studio Code
+### Opção 1 — Live Server
 
 1. Abra a pasta `conecta-sorriso` no Visual Studio Code.
 2. Instale a extensão **Live Server**.
-3. Clique com o botão direito em `index.html`.
-4. Escolha **Open with Live Server**.
+3. Clique com o botão direito sobre `index.html`.
+4. Selecione **Open with Live Server**.
 
-### Opção 2 — servidor simples do Python
+### Opção 2 — Python
 
 No terminal, dentro da pasta do projeto, execute:
 
@@ -57,69 +153,125 @@ No terminal, dentro da pasta do projeto, execute:
 python -m http.server 8000
 ```
 
-Depois acesse `http://localhost:8000`.
+Depois acesse [http://localhost:8000](http://localhost:8000).
 
-O mapa precisa de acesso à internet para carregar Leaflet.js e as imagens cartográficas do OpenStreetMap.
+O mapa e a localização de endereços precisam de conexão com a internet.
 
-## Como trocar os dados de demonstração por dados reais
+## Como atualizar as instituições
 
-1. Confirme cada informação em uma fonte pública ou diretamente com a instituição.
-2. Faça uma cópia de segurança de `dados/instituicoes.json`.
-3. Substitua cada registro fictício mantendo exatamente os mesmos nomes de propriedades.
-4. Use um `id` inteiro, positivo e exclusivo para cada instituição.
-5. Informe latitude e longitude em números decimais.
-6. Use `true` ou `false` nos campos booleanos.
-7. Use uma lista JSON no campo `tipo_atendimento`.
-8. Registre a fonte e a data de validação no formato `AAAA-MM-DD`.
-9. Marque `validado` como `true` apenas depois de confirmar o registro.
-10. Valide a sintaxe do JSON e teste busca, filtros, mapa e detalhes.
+1. Confirme as informações no site oficial ou diretamente com a instituição.
+2. Edite `dados/instituicoes.json` preservando os nomes das propriedades.
+3. Use um `id` inteiro, positivo e exclusivo.
+4. Informe latitude e longitude como números decimais.
+5. Use `true` ou `false` nos campos booleanos.
+6. Registre os atendimentos em uma lista JSON.
+7. Preencha `fonte` e `data_validacao` no formato `AAAA-MM-DD`.
+8. Use `validado: true` somente para dados devidamente confirmados.
+9. Valide a sintaxe do JSON e teste busca, filtros, mapa, distância e detalhes.
 
-Se um contato não estiver disponível, use uma string vazia. A interface mostrará uma mensagem amigável e desativará a ação correspondente.
+Se telefone ou site não estiverem disponíveis, utilize uma string vazia. A aplicação desativa a ação correspondente e apresenta uma mensagem adequada.
+
+## Acessibilidade
+
+O protótipo inclui:
+
+- HTML semântico e rótulos associados aos campos;
+- link “Ir para o conteúdo principal”;
+- navegação por teclado;
+- foco visível;
+- áreas clicáveis confortáveis;
+- mensagens dinâmicas com `aria-live`;
+- controles para aumentar e reduzir o texto;
+- modo de alto contraste;
+- layout adaptável a diferentes tamanhos de tela;
+- compatibilidade básica com leitores de tela e zoom do navegador.
+
+## Privacidade
+
+O Conecta Sorriso foi planejado com privacidade por padrão:
+
+- não exige login ou cadastro;
+- não solicita nome, e-mail ou dados de saúde do usuário;
+- não utiliza cookies de rastreamento;
+- não utiliza ferramentas de análise comportamental;
+- trabalha somente com informações institucionais públicas;
+- não armazena CEP, endereço ou geolocalização pesquisados;
+- mantém a localização apenas em memória durante a sessão.
 
 ## Publicação no GitHub Pages
 
 1. Crie um repositório no GitHub.
-2. Envie o conteúdo desta pasta para a raiz do repositório.
-3. No GitHub, abra **Settings → Pages**.
-4. Em **Build and deployment**, escolha **Deploy from a branch**.
-5. Selecione a branch `main` e a pasta `/ (root)`.
+2. Envie o conteúdo da pasta `conecta-sorriso` para a raiz do repositório.
+3. Acesse **Settings → Pages**.
+4. Em **Build and deployment**, selecione **Deploy from a branch**.
+5. Escolha a branch `main` e a pasta `/ (root)`.
 6. Salve e aguarde a publicação.
-7. Abra a URL informada pelo GitHub e teste as três páginas.
-
-Todos os caminhos do projeto são relativos, portanto funcionam em uma subpasta do GitHub Pages.
+7. Teste as páginas inicial, resultados e detalhes na URL fornecida.
 
 ## Testes manuais recomendados
 
-- Abrir a página inicial em 360, 768, 1024, 1366 e 1920 px.
-- Pesquisar usando letras maiúsculas, minúsculas, acentos e espaços duplicados.
-- Pesquisar por nome, bairro, CEP, categoria, atendimento e forma de acesso.
-- Combinar categoria, bairro, atendimento e encaminhamento.
-- Limpar a pesquisa e confirmar o retorno de todos os registros.
-- Alternar entre lista e mapa no celular.
-- Abrir cada marcador e o botão **Ver detalhes**.
-- Autorizar e negar a geolocalização.
-- Simular localização indisponível e tempo excedido nas ferramentas do navegador.
-- Verificar ordenação por distância e o cálculo apresentado.
-- Testar `detalhes.html` sem `id`, com `id` inválido e com `id` inexistente.
-- Testar registros sem telefone e sem site.
-- Navegar apenas pelo teclado e verificar o foco visível.
-- Testar o link **Ir para o conteúdo principal**.
-- Aumentar e reduzir o texto e ativar o alto contraste.
-- Testar com leitor de tela e zoom do navegador em 200%.
-- Desconectar a internet para confirmar a mensagem de mapa indisponível.
-- Abrir por `file://` para confirmar a mensagem sobre servidor local.
+- testar o layout nas larguras de 360, 768, 1024, 1366 e 1920 px;
+- pesquisar textos com maiúsculas, minúsculas, acentos e espaços duplicados;
+- pesquisar CEP com oito dígitos, com e sem hífen ou espaços;
+- pesquisar uma rua e verificar a ordenação por distância;
+- autorizar e negar a geolocalização;
+- combinar todos os filtros e depois limpar a pesquisa;
+- alternar entre lista e mapa no celular;
+- abrir os marcadores, detalhes, telefone, site e rota;
+- testar URLs sem `id`, com `id` inválido e inexistente;
+- navegar usando somente o teclado;
+- ativar alto contraste, alterar o texto e aplicar zoom de 200%;
+- testar o comportamento sem internet e por `file://`.
+
+## Limitações
+
+- o protótipo depende da atualização periódica das informações institucionais;
+- a disponibilidade de atendimento e vagas não é consultada em tempo real;
+- a distância exibida é geográfica, não o tempo real de deslocamento;
+- a localização de CEP e endereço depende de serviços públicos externos;
+- a aplicação não substitui orientação clínica ou confirmação da instituição.
 
 ## Melhorias futuras
 
-- Substituir os registros demonstrativos por dados oficialmente verificados.
-- Criar um processo de revisão periódica e histórico de atualizações.
-- Adicionar filtros por distância, gratuidade, faixa etária e disponibilidade.
-- Implementar compartilhamento de instituição por link.
-- Oferecer impressão acessível da ficha do atendimento.
-- Adicionar testes automatizados de interface e acessibilidade.
-- Disponibilizar o projeto como aplicativo web instalável (PWA).
-- Criar uma camada administrativa segura para atualização dos dados.
+- processo periódico de revisão e histórico de alterações;
+- filtros por gratuidade, faixa etária, distância e disponibilidade;
+- painel administrativo seguro para atualização das instituições;
+- compartilhamento e impressão acessível da ficha do atendimento;
+- estimativa de rota e tempo de deslocamento;
+- testes automatizados de interface e acessibilidade;
+- versão instalável como Progressive Web App (PWA);
+- expansão para outros municípios e serviços de saúde bucal.
 
-## Observação educacional
+## Fontes e fundamentação
 
-Os seis registros incluídos são fictícios e estão claramente identificados como demonstração. Eles não devem ser tratados como informação de atendimento real.
+O README foi elaborado com base no documento **“Conecta Sorriso: Rede de Acesso à Saúde Bucal — 2º Desafio da EPT-PR”**, no levantamento institucional das clínicas e na implementação atual do protótipo.
+
+Entre as referências que fundamentam o projeto estão:
+
+- BRASIL. Ministério da Saúde. *Pesquisa Nacional de Saúde Bucal: SB Brasil 2010 — resultados principais*. Brasília, 2012.
+- BRASIL. Ministério da Saúde. *Estratégia de Saúde Digital para o Brasil 2020–2028*. Brasília, 2020.
+- BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais — LGPD.
+- DAMASCENO, K. S. M. et al. *Acessibilidade aos serviços odontológicos no SUS: revisão da literatura*. Research, Society and Development, 2021.
+- PERES, M. A. et al. *Perda dentária no Brasil: análise da Pesquisa Nacional de Saúde Bucal 2010*. Revista de Saúde Pública, 2013.
+- RIBEIRO, C. G. et al. *Edentulism, severe tooth loss and lack of functional dentition in elders*. Brazilian Dental Journal, 2016.
+- [Leaflet](https://leafletjs.com/).
+- [OpenStreetMap](https://www.openstreetmap.org/).
+- [Cadastro Nacional de Estabelecimentos de Saúde — CNES](https://cnes.datasus.gov.br/).
+
+## Créditos
+
+Projeto interdisciplinar do **Colégio Estadual do Paraná**, desenvolvido em 2026 para o **2º Desafio da EPT-PR**, nas áreas de Saúde Bucal, Tecnologia da Informação e Inovação em Saúde.
+
+### Equipe estudantil
+
+- Giovana Antonia Leme da Silva — Técnico em Prótese Dentária;
+- Rafael Bittencourt Martins — Técnico em Prótese Dentária;
+- Gabriel Bordignon — Técnico em Desenvolvimento de Sistemas.
+
+### Orientação
+
+- João Paulo Stanislovicz Prohny.
+
+## Licença e uso
+
+Protótipo educacional. Antes de reutilizar ou redistribuir o código, os dados ou a identidade visual, defina uma licença no repositório e confirme as autorizações necessárias para uso da marca e das informações institucionais.
