@@ -10,7 +10,7 @@ O projeto foi desenvolvido no Colégio Estadual do Paraná para o **2º Desafio 
 
 ## Acesse o projeto
 
-- Aplicação publicada: [Conecta Sorriso]([https://conecta-sorriso.jprohnyod.chatgpt.site](https://gabrielbordignon.github.io/Conecta-Sorriso-ProjetoEPT-PD-CEP-2026/)
+- Aplicação publicada: [Conecta Sorriso](https://gabrielbordignon.github.io/Conecta-Sorriso-ProjetoEPT-PD-CEP-2026/)
 - Instituição: [Colégio Estadual do Paraná](https://www.cep.pr.gov.br/)
 
 ## Problema abordado
