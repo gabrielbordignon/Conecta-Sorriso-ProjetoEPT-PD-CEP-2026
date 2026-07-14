@@ -301,7 +301,17 @@
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    if (showMap) window.setTimeout(() => state.mapController?.refreshSize(), 60);
+    if (showMap) {
+      // O mapa é criado enquanto sua coluna está oculta no celular. Depois de
+      // exibi-la, reaplica os resultados e recalcula o tamanho em dois quadros
+      // para que Leaflet e a camada vetorial recebam a largura definitiva.
+      window.requestAnimationFrame(() => {
+        state.mapController?.updateInstitutions(state.filtered);
+        state.mapController?.refreshSize();
+      });
+      window.setTimeout(() => state.mapController?.refreshSize(), 180);
+      window.setTimeout(() => state.mapController?.refreshSize(), 420);
+    }
   }
 
   function initializeMap() {
