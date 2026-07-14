@@ -81,7 +81,7 @@ As coordenadas informadas pelo usuário são utilizadas somente durante a consul
 
 ## Base de dados
 
-Os registros ficam em [`dados/instituicoes.json`](dados/instituicoes.json). A versão atual reúne nove instituições de ensino com atendimento odontológico em Curitiba:
+Os registros ficam em [`dados/instituicoes.json`](dados/instituicoes.json). A versão atual reúne onze instituições de ensino e atendimento odontológico em Curitiba:
 
 1. UFPR — Curso de Odontologia;
 2. PUCPR — Clínica de Odontologia;
@@ -91,7 +91,9 @@ Os registros ficam em [`dados/instituicoes.json`](dados/instituicoes.json). A ve
 6. Faculdade Herrero — Clínica de Odontologia;
 7. UniCuritiba — Centro Universitário;
 8. UniDomBosco — Centro Universitário;
-9. UniOpet Centro Universitário.
+9. UniOpet Centro Universitário;
+10. Faculdade São Leopoldo Mandic — Unidade Curitiba;
+11. ABO-PR — Associação Brasileira de Odontologia.
 
 As informações foram organizadas a partir do levantamento do projeto e dos sites institucionais indicados em cada registro. O banco contém nome, categoria, endereço, bairro, CEP, coordenadas, telefone, site, horário, atendimento, forma de acesso, observações, fonte e data de validação.
 

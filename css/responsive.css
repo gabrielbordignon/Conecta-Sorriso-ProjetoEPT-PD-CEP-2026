@@ -356,10 +356,16 @@
   }
 
   .results-layout {
-    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .institutions-column {
+    order: 1;
   }
 
   .filters-panel {
+    order: 2;
     margin-bottom: 14px;
   }
 
@@ -368,6 +374,7 @@
   }
 
   .map-column {
+    order: 3;
     position: static;
     display: none;
   }
@@ -378,6 +385,7 @@
 
   .results-layout.show-map .map-column {
     display: block;
+    order: 1;
   }
 
   .map-container {
