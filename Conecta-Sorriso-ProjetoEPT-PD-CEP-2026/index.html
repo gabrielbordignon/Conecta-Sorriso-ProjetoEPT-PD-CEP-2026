@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Protótipo educacional para localizar serviços de reabilitação oral e prótese dentária em Curitiba.">
+  <title>Conecta Sorriso — Rede de Acesso à Saúde Bucal</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+</head>
+<body data-page="inicio">
+  <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Conecta Sorriso — página inicial">
+        <img src="assets/logo.png" alt="Conecta Sorriso — Rede de Acesso à Saúde Bucal" class="brand-logo">
+      </a>
+
+      <button class="menu-toggle icon-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation">
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav id="main-navigation" class="main-nav" aria-label="Navegação principal">
+        <a class="active" href="index.html">Início</a>
+        <a href="resultados.html">Instituições</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre-projeto">Sobre o projeto</a>
+        <button class="button button-outline accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel">
+          <span aria-hidden="true">◉</span> Acessibilidade
+        </button>
+      </nav>
+    </div>
+
+    <div id="accessibility-panel" class="accessibility-panel" hidden>
+      <div class="container accessibility-controls" aria-label="Opções de acessibilidade">
+        <span>Tamanho do texto</span>
+        <button type="button" data-font-action="decrease" aria-label="Diminuir tamanho do texto">A−</button>
+        <button type="button" data-font-action="increase" aria-label="Aumentar tamanho do texto">A+</button>
+        <button type="button" data-contrast-action aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Rede de acesso à saúde bucal</p>
+          <h1>Encontre atendimento para <span>prótese dentária</span> em Curitiba</h1>
+          <p class="hero-description">Localize clínicas-escola e serviços públicos de reabilitação oral próximos de você.</p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-logo-card">
+            <img src="assets/logo.png" alt="">
+          </div>
+          <span class="visual-dot visual-dot-one"></span>
+          <span class="visual-dot visual-dot-two"></span>
+        </div>
+      </div>
+
+      <div class="container home-search-wrap">
+        <form id="home-search-form" class="home-search" role="search" novalidate>
+          <div class="search-field">
+            <label class="sr-only" for="home-search-input">Buscar atendimento</label>
+            <span class="field-icon" aria-hidden="true">⌕</span>
+            <input id="home-search-input" name="q" type="search" maxlength="160" placeholder="Digite um bairro, CEP, instituição ou tipo de atendimento">
+          </div>
+          <button class="button button-primary" type="submit">Buscar atendimento</button>
+          <button id="home-location-button" class="button button-secondary" type="button">
+            <span aria-hidden="true">⌖</span> Usar minha localização
+          </button>
+        </form>
+        <p id="home-status" class="status-message" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section section-compact" aria-labelledby="quick-filters-title">
+      <div class="container">
+        <div class="section-heading inline-heading">
+          <div>
+            <p class="eyebrow">Pesquisa rápida</p>
+            <h2 id="quick-filters-title">Que tipo de instituição você procura?</h2>
+          </div>
+        </div>
+        <div class="quick-filters" role="group" aria-label="Filtros rápidos">
+          <button class="filter-chip active" type="button" data-category="" aria-pressed="true">Todos</button>
+          <button class="filter-chip" type="button" data-category="CEO" aria-pressed="false">Serviços públicos / CEO</button>
+          <button class="filter-chip" type="button" data-category="Clínica-escola pública" aria-pressed="false">Clínica-escola pública</button>
+          <button class="filter-chip" type="button" data-category="Clínica-escola privada" aria-pressed="false">Clínica-escola privada</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section how-section" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-heading centered-heading">
+          <p class="eyebrow">Simples e direto</p>
+          <h2 id="how-title">Como o Conecta Sorriso ajuda você</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">1</span>
+            <div class="step-icon" aria-hidden="true">⌕</div>
+            <h3>Encontre serviços</h3>
+            <p>Pesquise por bairro, instituição ou tipo de atendimento.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">2</span>
+            <div class="step-icon" aria-hidden="true">⌖</div>
+            <h3>Visualize no mapa</h3>
+            <p>Compare a localização das instituições em Curitiba.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">3</span>
+            <div class="step-icon" aria-hidden="true">✓</div>
+            <h3>Confira como acessar</h3>
+            <p>Veja encaminhamento, agendamento e orientações antes de ir.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">4</span>
+            <div class="step-icon" aria-hidden="true">☎</div>
+            <h3>Entre em contato</h3>
+            <p>Use os canais informados para confirmar o atendimento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-projeto" class="section about-section" aria-labelledby="about-title">
+      <div class="container about-card">
+        <div class="about-mark" aria-hidden="true">
+          <img src="assets/logo.png" alt="">
+        </div>
+        <div>
+          <p class="eyebrow">Informação que aproxima</p>
+          <h2 id="about-title">Sobre o Conecta Sorriso</h2>
+          <p>O projeto reúne informações sobre serviços de saúde bucal, com foco em reabilitação oral e próteses dentárias, para facilitar o acesso da população de Curitiba.</p>
+        </div>
+        <a class="button button-outline" href="resultados.html">Ver instituições</a>
+      </div>
+    </section>
+
+    <section class="notice-section" aria-label="Aviso importante">
+      <div class="container notice-card">
+        <span class="notice-icon" aria-hidden="true">i</span>
+        <p><strong>Aviso importante:</strong> O Conecta Sorriso organiza informações públicas e institucionais. Confirme o atendimento diretamente com a instituição antes de se deslocar.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Conecta Sorriso</strong>
+        <p>Rede de Acesso à Saúde Bucal</p>
+      </div>
+      <div>
+        <strong>Colégio Estadual do Paraná</strong>
+        <p>Protótipo educacional — 2026</p>
+      </div>
+      <p class="footer-privacy">Sem login, sem cadastro e sem armazenamento de localização.</p>
+    </div>
+  </footer>
+
+  <script src="js/acessibilidade.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

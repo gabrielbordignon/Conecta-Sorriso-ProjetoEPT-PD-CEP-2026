@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resultados de serviços odontológicos e clínicas-escola em Curitiba.">
+  <title>Resultados — Conecta Sorriso</title>
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="assets/vendor/maplibre/maplibre-gl.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+</head>
+<body data-page="resultados">
+  <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Conecta Sorriso — página inicial">
+        <img src="assets/logo.png" alt="Conecta Sorriso — Rede de Acesso à Saúde Bucal" class="brand-logo">
+      </a>
+      <button class="menu-toggle icon-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation">
+        <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="main-navigation" class="main-nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a class="active" href="resultados.html">Instituições</a>
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#sobre-projeto">Sobre o projeto</a>
+        <button class="button button-outline accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel"><span aria-hidden="true">◉</span> Acessibilidade</button>
+      </nav>
+    </div>
+    <div id="accessibility-panel" class="accessibility-panel" hidden>
+      <div class="container accessibility-controls" aria-label="Opções de acessibilidade">
+        <span>Tamanho do texto</span>
+        <button type="button" data-font-action="decrease" aria-label="Diminuir tamanho do texto">A−</button>
+        <button type="button" data-font-action="increase" aria-label="Aumentar tamanho do texto">A+</button>
+        <button type="button" data-contrast-action aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="results-page">
+    <section class="results-search-section" aria-label="Nova pesquisa">
+      <div class="container">
+        <form id="results-search-form" class="results-search" role="search" novalidate>
+          <a class="back-button icon-button" href="index.html" aria-label="Voltar à página inicial">‹</a>
+          <div class="search-field">
+            <label class="sr-only" for="results-search-input">Buscar atendimento</label>
+            <span class="field-icon" aria-hidden="true">⌕</span>
+            <input id="results-search-input" name="q" type="search" maxlength="160" placeholder="Instituição, bairro, CEP ou atendimento">
+          </div>
+          <button id="results-location-button" class="button button-location" type="button"><span aria-hidden="true">⌖</span> Minha localização</button>
+          <button class="button button-primary" type="submit">Buscar</button>
+        </form>
+        <p id="results-status" class="status-message" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="container results-summary" aria-label="Resumo dos resultados">
+      <p><strong id="result-count">0</strong> <span id="result-count-label">locais encontrados</span></p>
+      <button id="clear-search-top" class="button button-outline button-small" type="button">× Limpar pesquisa</button>
+    </section>
+
+    <div class="container mobile-view-switch" role="group" aria-label="Alternar visualização">
+      <button class="active" type="button" data-view="list" aria-pressed="true">☷ Ver lista</button>
+      <button type="button" data-view="map" aria-pressed="false">⌖ Ver mapa</button>
+    </div>
+
+    <section class="container results-layout" aria-label="Instituições encontradas">
+      <aside class="filters-panel" aria-labelledby="filters-title">
+        <div class="filters-title-row">
+          <h2 id="filters-title"><span aria-hidden="true">☷</span> Filtros</h2>
+          <button id="filters-collapse" class="icon-button filters-collapse" type="button" aria-label="Recolher filtros" aria-expanded="true">⌃</button>
+        </div>
+        <form id="filters-form" class="filters-form">
+          <div class="form-group">
+            <label for="filter-category">Categoria</label>
+            <select id="filter-category" name="categoria">
+              <option value="">Todas</option>
+              <option value="CEO">Serviços públicos / CEO</option>
+              <option value="Clínica-escola pública">Clínica-escola pública</option>
+              <option value="Clínica-escola privada">Clínica-escola privada</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filter-neighborhood">Bairro</label>
+            <select id="filter-neighborhood" name="bairro">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filter-service">Tipo de atendimento</label>
+            <select id="filter-service" name="atendimento">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filter-referral">Necessidade de encaminhamento</label>
+            <select id="filter-referral" name="encaminhamento">
+              <option value="">Todos</option>
+              <option value="sim">Precisa de encaminhamento</option>
+              <option value="nao">Não precisa de encaminhamento</option>
+            </select>
+          </div>
+          <button class="button button-primary button-block" type="submit">☷ Aplicar filtros</button>
+          <button id="clear-filters" class="button button-outline button-block" type="button">× Limpar pesquisa</button>
+        </form>
+      </aside>
+
+      <section id="list-view" class="institutions-column" aria-labelledby="list-title">
+        <h2 id="list-title" class="sr-only">Lista de instituições</h2>
+        <div id="institutions-list" class="institutions-list" aria-live="polite" aria-busy="true"></div>
+        <div id="empty-results" class="empty-state" hidden>
+          <div aria-hidden="true">⌕</div>
+          <h3>Nenhum local encontrado</h3>
+          <p>Tente remover alguns filtros ou pesquisar com outro termo.</p>
+          <button class="button button-outline" type="button" data-clear-results>Limpar pesquisa</button>
+        </div>
+      </section>
+
+      <section id="map-view" class="map-column" aria-labelledby="map-title">
+        <h2 id="map-title" class="sr-only">Mapa dos resultados</h2>
+        <div id="results-map" class="map-container" role="application" aria-label="Mapa com as instituições encontradas"></div>
+        <p id="map-fallback" class="map-fallback" hidden>O mapa está indisponível no momento. Você ainda pode consultar a lista de instituições.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer compact-footer">
+    <div class="container footer-inner">
+      <p><strong>Conecta Sorriso</strong> — Protótipo educacional do Colégio Estadual do Paraná, 2026.</p>
+      <p>Confirme as informações diretamente com a instituição.</p>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/leaflet/leaflet.js" defer></script>
+  <script src="assets/vendor/maplibre/maplibre-gl.js" defer></script>
+  <script src="assets/vendor/maplibre-leaflet/leaflet-maplibre-gl.js" defer></script>
+  <script src="js/acessibilidade.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/filtros.js" defer></script>
+  <script src="js/mapa.js" defer></script>
+  <script src="js/resultados.js" defer></script>
+</body>
+</html>
