@@ -45,7 +45,14 @@
     category.textContent = institution.categoria_label;
 
     const link = document.createElement('a');
-    link.href = `detalhes.html?id=${encodeURIComponent(institution.id)}`;
+    const currentParameters = new URLSearchParams(window.location.search);
+    const detailParameters = new URLSearchParams({ id: String(institution.id) });
+    const query = (currentParameters.get('q') || '').replace(/\s+/g, ' ').trim().slice(0, 160);
+    const selectedCategory = currentParameters.get('categoria') || '';
+    const allowedCategories = ['CEO', 'Clínica-escola pública', 'Clínica-escola privada'];
+    if (query) detailParameters.set('q', query);
+    if (allowedCategories.includes(selectedCategory)) detailParameters.set('categoria', selectedCategory);
+    link.href = `detalhes.html?${detailParameters.toString()}`;
     link.textContent = 'Ver detalhes';
 
     wrapper.append(name, category, link);

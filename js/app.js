@@ -193,12 +193,36 @@
   }
 
   function createRouteUrl(institution, userLocation = null) {
-    const destination = `${institution.latitude},${institution.longitude}`;
-    if (userLocation) {
-      const origin = `${userLocation.latitude},${userLocation.longitude}`;
-      return `https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=${encodeURIComponent(origin)}%3B${encodeURIComponent(destination)}`;
+    const latitude = Number(institution?.latitude);
+    const longitude = Number(institution?.longitude);
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return '';
+
+    const destination = `${latitude},${longitude}`;
+    const originLatitude = Number(userLocation?.latitude);
+    const originLongitude = Number(userLocation?.longitude);
+    const hasOrigin = Number.isFinite(originLatitude) && Number.isFinite(originLongitude);
+    const origin = hasOrigin ? `${originLatitude},${originLongitude}` : '';
+
+    // No iPhone, iPad e Mac, abre o Apple Mapas. Nos demais dispositivos,
+    // usa a URL universal de rotas do Google Maps. Nenhuma chave é necessária.
+    const platform = navigator.userAgentData?.platform || navigator.platform || '';
+    const isIPadOS = platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    const isAppleDevice = /Mac|iPhone|iPad|iPod/i.test(platform) || isIPadOS;
+
+    if (isAppleDevice) {
+      const parameters = new URLSearchParams({ daddr: destination, dirflg: 'd' });
+      if (origin) parameters.set('saddr', origin);
+      return `https://maps.apple.com/?${parameters.toString()}`;
     }
-    return `https://www.openstreetmap.org/?mlat=${encodeURIComponent(institution.latitude)}&mlon=${encodeURIComponent(institution.longitude)}#map=17/${encodeURIComponent(institution.latitude)}/${encodeURIComponent(institution.longitude)}`;
+
+    const parameters = new URLSearchParams({
+      api: '1',
+      destination,
+      travelmode: 'driving',
+      dir_action: 'navigate'
+    });
+    if (origin) parameters.set('origin', origin);
+    return `https://www.google.com/maps/dir/?${parameters.toString()}`;
   }
 
   function setStatus(element, message = '', isError = false) {

@@ -10,7 +10,7 @@ O projeto foi desenvolvido no Colégio Estadual do Paraná para o **2º Desafio 
 
 ## Acesse o projeto
 
-- Aplicação publicada: [Conecta Sorriso](https://gabrielbordignon.github.io/Conecta-Sorriso-ProjetoEPT-PD-CEP-2026/)
+- Aplicação publicada: [Conecta Sorriso](https://conecta-sorriso.jprohnyod.chatgpt.site)
 - Instituição: [Colégio Estadual do Paraná](https://www.cep.pr.gov.br/)
 
 ## Problema abordado
@@ -50,7 +50,7 @@ O protótipo procura:
 - filtros combináveis por categoria, bairro, atendimento e encaminhamento;
 - mapa interativo com marcadores e enquadramento automático;
 - página individual com informações detalhadas de cada instituição;
-- links para ligação telefônica, site oficial e rota externa;
+- links para ligação telefônica, site oficial e rota externa no Google Maps ou Apple Mapas;
 - visualização responsiva para computador, tablet e celular;
 - mensagens amigáveis para erros de busca, mapa, dados e geolocalização.
 
@@ -67,7 +67,7 @@ O projeto utiliza tecnologias abertas e gratuitas:
 | Cartografia | OpenFreeMap Positron | Estilo cartográfico claro com dados do OpenStreetMap |
 | Dados | JSON | Armazenamento dos registros institucionais |
 
-Não são utilizados React, Vue, Angular, Bootstrap, Tailwind, Firebase, banco SQL, Google Maps ou APIs pagas no funcionamento da aplicação.
+Não são utilizados React, Vue, Angular, Bootstrap, Tailwind, Firebase, banco SQL ou APIs pagas. O mapa principal continua sendo o OpenFreeMap; Google Maps e Apple Mapas são usados apenas como destinos externos do botão de rota.
 
 ## Como funciona a busca por proximidade
 
@@ -159,6 +159,20 @@ Depois acesse [http://localhost:8000](http://localhost:8000).
 
 O mapa e a localização de endereços precisam de conexão com a internet.
 
+## Como atualizar as instituições
+
+1. Confirme as informações no site oficial ou diretamente com a instituição.
+2. Edite `dados/instituicoes.json` preservando os nomes das propriedades.
+3. Use um `id` inteiro, positivo e exclusivo.
+4. Informe latitude e longitude como números decimais.
+5. Use `true` ou `false` nos campos booleanos.
+6. Registre os atendimentos em uma lista JSON.
+7. Preencha `fonte` e `data_validacao` no formato `AAAA-MM-DD`.
+8. Use `validado: true` somente para dados devidamente confirmados.
+9. Valide a sintaxe do JSON e teste busca, filtros, mapa, distância e detalhes.
+
+Se telefone ou site não estiverem disponíveis, utilize uma string vazia. A aplicação desativa a ação correspondente e apresenta uma mensagem adequada.
+
 ## Acessibilidade
 
 O protótipo inclui:
@@ -185,6 +199,31 @@ O Conecta Sorriso foi planejado com privacidade por padrão:
 - trabalha somente com informações institucionais públicas;
 - não armazena CEP, endereço ou geolocalização pesquisados;
 - mantém a localização apenas em memória durante a sessão.
+
+## Publicação no GitHub Pages
+
+1. Crie um repositório no GitHub.
+2. Envie o conteúdo da pasta `conecta-sorriso` para a raiz do repositório.
+3. Acesse **Settings → Pages**.
+4. Em **Build and deployment**, selecione **Deploy from a branch**.
+5. Escolha a branch `main` e a pasta `/ (root)`.
+6. Salve e aguarde a publicação.
+7. Teste as páginas inicial, resultados e detalhes na URL fornecida.
+
+## Testes manuais recomendados
+
+- testar o layout nas larguras de 360, 768, 1024, 1366 e 1920 px;
+- pesquisar textos com maiúsculas, minúsculas, acentos e espaços duplicados;
+- pesquisar CEP com oito dígitos, com e sem hífen ou espaços;
+- pesquisar uma rua e verificar a ordenação por distância;
+- autorizar e negar a geolocalização;
+- combinar todos os filtros e depois limpar a pesquisa;
+- alternar entre lista e mapa no celular;
+- abrir os marcadores, detalhes, telefone, site e rota;
+- testar URLs sem `id`, com `id` inválido e inexistente;
+- navegar usando somente o teclado;
+- ativar alto contraste, alterar o texto e aplicar zoom de 200%;
+- testar o comportamento sem internet e por `file://`.
 
 ## Limitações
 
@@ -221,6 +260,8 @@ Entre as referências que fundamentam o projeto estão:
 - [OpenFreeMap](https://openfreemap.org/).
 - [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/).
 - [OpenStreetMap](https://www.openstreetmap.org/).
+- [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started).
+- [Apple Map Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html).
 - [Cadastro Nacional de Estabelecimentos de Saúde — CNES](https://cnes.datasus.gov.br/).
 
 ## Créditos

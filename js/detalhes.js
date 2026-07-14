@@ -101,9 +101,31 @@
   }
 
   function configureBackLink() {
-    const query = new URLSearchParams(window.location.search).get('q') || '';
+    const parameters = new URLSearchParams(window.location.search);
+    const query = parameters.get('q') || '';
+    const category = parameters.get('categoria') || '';
     const safeQuery = query.replace(/\s+/g, ' ').trim().slice(0, 160);
-    document.getElementById('back-results').href = window.ConectaSorriso.createResultsUrl(safeQuery);
+    const allowedCategories = ['', 'CEO', 'Clínica-escola pública', 'Clínica-escola privada'];
+    const safeCategory = allowedCategories.includes(category) ? category : '';
+    const backLink = document.getElementById('back-results');
+    backLink.href = window.ConectaSorriso.createResultsUrl(safeQuery, safeCategory);
+
+    // Voltar pelo histórico preserva o ponto pesquisado, as distâncias, os
+    // filtros e a posição do mapa. O href acima continua sendo um fallback
+    // seguro para acesso direto à página de detalhes.
+    try {
+      const referrer = document.referrer ? new URL(document.referrer) : null;
+      const cameFromResults = referrer?.origin === window.location.origin
+        && referrer.pathname.endsWith('/resultados.html');
+      if (cameFromResults) {
+        backLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.history.back();
+        });
+      }
+    } catch (_error) {
+      // Mantém o link de fallback quando o referenciador não puder ser lido.
+    }
   }
 
   async function initializeDetails() {

@@ -141,6 +141,7 @@
     const detailsLink = document.createElement('a');
     const detailsParams = new URLSearchParams({ id: String(institution.id) });
     if (state.query) detailsParams.set('q', state.query);
+    if (state.category) detailsParams.set('categoria', state.category);
     detailsLink.href = `detalhes.html?${detailsParams.toString()}`;
     detailsLink.className = 'button button-primary';
     detailsLink.textContent = 'Ver detalhes';
@@ -395,6 +396,19 @@
       window.ConectaSorriso.setStatus(elements.status, 'Erro ao carregar o arquivo de instituições.', true);
     }
   }
+
+  // Ao voltar da página de detalhes, o navegador pode restaurar esta tela pelo
+  // cache de navegação. Reaplica os marcadores e recalcula o tamanho do mapa
+  // para preservar o CEP, a ordenação por proximidade e o enquadramento.
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted || !state.mapController) return;
+    if (state.userLocation) {
+      const label = state.locationSource === 'search' ? 'Endereço pesquisado' : state.locationLabel;
+      state.mapController.setUserLocation(state.userLocation, label);
+    }
+    state.mapController.updateInstitutions(state.filtered);
+    window.setTimeout(() => state.mapController?.refreshSize(), 80);
+  });
 
   document.addEventListener('DOMContentLoaded', initializeResults);
 })();
