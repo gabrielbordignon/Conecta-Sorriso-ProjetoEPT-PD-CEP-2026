@@ -63,8 +63,8 @@ O projeto utiliza tecnologias abertas e gratuitas:
 | Interface | HTML5 | Estrutura semântica das páginas |
 | Estilos | CSS3 | Layout, responsividade e acessibilidade |
 | Comportamento | JavaScript ES6+ | Busca, filtros, geolocalização e interface |
-| Mapa | Leaflet.js | Exibição e controle do mapa interativo |
-| Cartografia | OpenStreetMap | Camada cartográfica aberta |
+| Mapa | Leaflet.js + MapLibre GL Leaflet | Controles, marcadores e renderização vetorial |
+| Cartografia | OpenFreeMap Positron | Estilo cartográfico claro com dados do OpenStreetMap |
 | Dados | JSON | Armazenamento dos registros institucionais |
 
 Não são utilizados React, Vue, Angular, Bootstrap, Tailwind, Firebase, banco SQL, Google Maps ou APIs pagas no funcionamento da aplicação.
@@ -120,7 +120,9 @@ conecta-sorriso/
     ├── logo.png
     ├── icons/
     └── vendor/
-        └── leaflet/
+        ├── leaflet/
+        ├── maplibre/
+        └── maplibre-leaflet/
 ```
 
 ## Responsabilidade dos arquivos JavaScript
@@ -130,7 +132,7 @@ conecta-sorriso/
 | `app.js` | Funções compartilhadas, leitura e validação do JSON, normalização de texto, CEP, geocodificação e Haversine |
 | `resultados.js` | Estado da pesquisa, renderização dos cartões, proximidade e integração entre busca, filtros e mapa |
 | `detalhes.js` | Carregamento e apresentação da instituição selecionada |
-| `mapa.js` | Inicialização do Leaflet, marcadores, pop-ups, enquadramento e redimensionamento |
+| `mapa.js` | Inicialização do Leaflet com OpenFreeMap Positron, marcadores, pop-ups, enquadramento e redimensionamento |
 | `filtros.js` | Aplicação conjunta dos filtros |
 | `acessibilidade.js` | Tamanho do texto, alto contraste e navegação móvel |
 
@@ -216,6 +218,8 @@ Entre as referências que fundamentam o projeto estão:
 - PERES, M. A. et al. *Perda dentária no Brasil: análise da Pesquisa Nacional de Saúde Bucal 2010*. Revista de Saúde Pública, 2013.
 - RIBEIRO, C. G. et al. *Edentulism, severe tooth loss and lack of functional dentition in elders*. Brazilian Dental Journal, 2016.
 - [Leaflet](https://leafletjs.com/).
+- [OpenFreeMap](https://openfreemap.org/).
+- [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/).
 - [OpenStreetMap](https://www.openstreetmap.org/).
 - [Cadastro Nacional de Estabelecimentos de Saúde — CNES](https://cnes.datasus.gov.br/).
 

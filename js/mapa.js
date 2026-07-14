@@ -2,6 +2,12 @@
   'use strict';
 
   const CURITIBA_CENTER = [-25.4284, -49.2733];
+  const OPENFREEMAP_POSITRON_STYLE = 'https://tiles.openfreemap.org/styles/positron';
+  const MAP_ATTRIBUTION = [
+    '<a href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>',
+    '<a href="https://www.openmaptiles.org/" target="_blank" rel="noopener noreferrer">© OpenMapTiles</a>',
+    'dados <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>'
+  ].join(' | ');
   const CATEGORY_CLASS = {
     'Clínica-escola pública': 'public-school',
     'Clínica-escola privada': 'private-school'
@@ -46,6 +52,15 @@
     return wrapper;
   }
 
+  function supportsWebGL() {
+    try {
+      const canvas = document.createElement('canvas');
+      return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+    } catch (_error) {
+      return false;
+    }
+  }
+
   function createMap(elementId, options = {}) {
     const element = document.getElementById(elementId);
     if (!element || !window.L) return null;
@@ -57,10 +72,25 @@
         scrollWheelZoom: false
       });
 
-      window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
+      try {
+        if (!window.maplibregl || !window.L.maplibreGL || !supportsWebGL()) {
+          throw new Error('MapLibre ou WebGL indisponível');
+        }
+
+        // O OpenFreeMap entrega tiles vetoriais. O adaptador oficial mantém os
+        // controles, marcadores e pop-ups do Leaflet sobre o estilo Positron.
+        window.L.maplibreGL({
+          style: OPENFREEMAP_POSITRON_STYLE,
+          attributionControl: { customAttribution: MAP_ATTRIBUTION }
+        }).addTo(map);
+      } catch (styleError) {
+        // Navegadores sem WebGL continuam recebendo um mapa funcional.
+        console.warn('O estilo Positron não pôde ser carregado; usando mapa de compatibilidade.', styleError);
+        window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a>'
+        }).addTo(map);
+      }
 
       const markerLayer = window.L.layerGroup().addTo(map);
       let userMarker = null;
