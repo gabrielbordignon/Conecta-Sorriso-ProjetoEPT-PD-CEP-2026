@@ -1,0 +1,219 @@
+{
+  "data": "2026-11-05",
+  "zip_original_sha256": "a266b25cbd4abadae2569e9881fb9ee5e0e167b6eae6e14d49d956756f9800ae",
+  "arquivos_originais": 23,
+  "originais_identicos": 20,
+  "originais_com_insercoes": [
+    "detalhes.html",
+    "index.html",
+    "resultados.html"
+  ],
+  "arquivos_novos_de_codigo_configuracao_e_guia": [
+    ".env.example",
+    ".gitignore",
+    "README-CHATBOT.md",
+    "css/chatbot.css",
+    "js/chatbot-core.js",
+    "js/chatbot.js",
+    "package.json",
+    "server.mjs",
+    "tests/chatbot.test.mjs"
+  ],
+  "linhas_adicionadas_no_patch": 852,
+  "linhas_removidas_no_patch": 0,
+  "patch_reconstroi_entrega": true,
+  "arquivos": [
+    {
+      "arquivo": ".env.example",
+      "sha256_original": null,
+      "sha256_entrega": "45a96cc2cc65dbaa29e6c86dedf55ae6aa2088ff39ce029e9c51616b30fece2a",
+      "status": "novo"
+    },
+    {
+      "arquivo": ".gitignore",
+      "sha256_original": null,
+      "sha256_entrega": "1b387c202689ba286740d9fca4336c16d4540b82f2a8565dd02b31f4e1be0209",
+      "status": "novo"
+    },
+    {
+      "arquivo": "README-CHATBOT.md",
+      "sha256_original": null,
+      "sha256_entrega": "6f262dd040bde40e0a66411f20c7017c3e138c08d2e89ce0e9427cc5ddc26c43",
+      "status": "novo"
+    },
+    {
+      "arquivo": "README.md",
+      "sha256_original": "3be151ad0cca0111561078385a1298d976f83f816e0b323f85c4bf467d17ac66",
+      "sha256_entrega": "3be151ad0cca0111561078385a1298d976f83f816e0b323f85c4bf467d17ac66",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/icons/README.md",
+      "sha256_original": "7cc89a869789af86568f7ebdc0b01891d805c42a401b18dfd728f7796473a3d3",
+      "sha256_entrega": "7cc89a869789af86568f7ebdc0b01891d805c42a401b18dfd728f7796473a3d3",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/logo.png",
+      "sha256_original": "51a735d0c536ab79ffdd78e6db1d87007bdbd73185d7be0d19b214b734808879",
+      "sha256_entrega": "51a735d0c536ab79ffdd78e6db1d87007bdbd73185d7be0d19b214b734808879",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/leaflet/leaflet.css",
+      "sha256_original": "337bfca5cabd03b39815b2700febe2b3b7edf55921c59cd49f88ecb328212303",
+      "sha256_entrega": "337bfca5cabd03b39815b2700febe2b3b7edf55921c59cd49f88ecb328212303",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/leaflet/leaflet.js",
+      "sha256_original": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "sha256_entrega": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/maplibre-leaflet/LICENSE.txt",
+      "sha256_original": "eaa721ba158cbeff47ad53b1035dfc26ff744df66662c93ff715c9885197ebf3",
+      "sha256_entrega": "eaa721ba158cbeff47ad53b1035dfc26ff744df66662c93ff715c9885197ebf3",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/maplibre-leaflet/leaflet-maplibre-gl.js",
+      "sha256_original": "1c33367962e7755c1a16d1f85658fdc96b5baa36f81adfca9493174cd1b526ce",
+      "sha256_entrega": "1c33367962e7755c1a16d1f85658fdc96b5baa36f81adfca9493174cd1b526ce",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/maplibre/LICENSE.txt",
+      "sha256_original": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "sha256_entrega": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/maplibre/maplibre-gl.css",
+      "sha256_original": "ab1e70d59ec40465bae7e7030da2f3ccf28133fd502e62bd598eefbadfd7a732",
+      "sha256_entrega": "ab1e70d59ec40465bae7e7030da2f3ccf28133fd502e62bd598eefbadfd7a732",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "assets/vendor/maplibre/maplibre-gl.js",
+      "sha256_original": "45a9b07a9189ce56054c620a947ccf41e291e58c95e9b61533b740aaa65ee5cb",
+      "sha256_entrega": "45a9b07a9189ce56054c620a947ccf41e291e58c95e9b61533b740aaa65ee5cb",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "css/accessibility.css",
+      "sha256_original": "2cc22aae9fc15098aa86aa091caf91f5a38c074022c8cfa99b355c8512f65c3c",
+      "sha256_entrega": "2cc22aae9fc15098aa86aa091caf91f5a38c074022c8cfa99b355c8512f65c3c",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "css/chatbot.css",
+      "sha256_original": null,
+      "sha256_entrega": "95233b50e622d6d1b093eef325339293d22ca20f9cfccd61b9db8e77ade873ea",
+      "status": "novo"
+    },
+    {
+      "arquivo": "css/responsive.css",
+      "sha256_original": "585a283fad1d185cc0570a298abba4aa1395f8da7843ae73cf270111e904c868",
+      "sha256_entrega": "585a283fad1d185cc0570a298abba4aa1395f8da7843ae73cf270111e904c868",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "css/style.css",
+      "sha256_original": "e1cd8c7b1ef1fff9a035eb893ce1ef5afd10face757e86f27b5f0c29655cc3a6",
+      "sha256_entrega": "e1cd8c7b1ef1fff9a035eb893ce1ef5afd10face757e86f27b5f0c29655cc3a6",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "dados/instituicoes.json",
+      "sha256_original": "77217d1991f3cbdc6df7d089ae46341a5659f0105b98f6f1f9bf9f0bed3fb938",
+      "sha256_entrega": "77217d1991f3cbdc6df7d089ae46341a5659f0105b98f6f1f9bf9f0bed3fb938",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "detalhes.html",
+      "sha256_original": "d0c82d7b82d068658340c1c8c92054899894afb9fd3deaab4108f56bdc3174cb",
+      "sha256_entrega": "3cc75a3e0f4ba5c9e8a5d199bfe12922d2c4901873f5e8ff75db3e355ed9d3af",
+      "status": "somente_insercoes"
+    },
+    {
+      "arquivo": "index.html",
+      "sha256_original": "45f4c0181f973c7f729084efe3bc7ed7dec6874ef5fcf26b159a61143acbc56a",
+      "sha256_entrega": "1afbc7d67ca225d2157612c620d82742d9b7b9b0fdc9922d1b9a63c3a1494bae",
+      "status": "somente_insercoes"
+    },
+    {
+      "arquivo": "js/acessibilidade.js",
+      "sha256_original": "d7f57522f4425d18a0c0436d97cf325e02f4cff6bb8a3e47d4314203026da5ab",
+      "sha256_entrega": "d7f57522f4425d18a0c0436d97cf325e02f4cff6bb8a3e47d4314203026da5ab",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "js/app.js",
+      "sha256_original": "2118ee8bd229ba5b7004405c359e50e89aa46e0c48c326c68b42cac805ad6c64",
+      "sha256_entrega": "2118ee8bd229ba5b7004405c359e50e89aa46e0c48c326c68b42cac805ad6c64",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "js/chatbot-core.js",
+      "sha256_original": null,
+      "sha256_entrega": "e0e7c968f6a3057b9b60335115ae2cc3acadf89822bedc444a4f3e9a15dbee3d",
+      "status": "novo"
+    },
+    {
+      "arquivo": "js/chatbot.js",
+      "sha256_original": null,
+      "sha256_entrega": "1f23ffa2697d1e84f82d2f1c1b5044705404b60f16270086267e532248e8d557",
+      "status": "novo"
+    },
+    {
+      "arquivo": "js/detalhes.js",
+      "sha256_original": "9c17f1a270e176e57370393d8b445fec081bc3a31af923f3820f3e7d5891eff6",
+      "sha256_entrega": "9c17f1a270e176e57370393d8b445fec081bc3a31af923f3820f3e7d5891eff6",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "js/filtros.js",
+      "sha256_original": "91d8f4a8ac22439fdce86066e81990089dc12816f7db1c93ef8c4f3132ff799f",
+      "sha256_entrega": "91d8f4a8ac22439fdce86066e81990089dc12816f7db1c93ef8c4f3132ff799f",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "js/mapa.js",
+      "sha256_original": "36d05b4b29c026a3568d40067614d45a034b97d58c9c411e6a3ed9bae6089656",
+      "sha256_entrega": "36d05b4b29c026a3568d40067614d45a034b97d58c9c411e6a3ed9bae6089656",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "js/resultados.js",
+      "sha256_original": "8215437d47170bf619f40a6838106e0dda223e31f22947698497224f529474c2",
+      "sha256_entrega": "8215437d47170bf619f40a6838106e0dda223e31f22947698497224f529474c2",
+      "status": "inalterado"
+    },
+    {
+      "arquivo": "package.json",
+      "sha256_original": null,
+      "sha256_entrega": "b44ca1551b8a08a9fc8d6c52abaa30861871cf6dc872fe00cd39c903f0f9e445",
+      "status": "novo"
+    },
+    {
+      "arquivo": "resultados.html",
+      "sha256_original": "f3b7646f0382144f5ac9ac8a93df4d16f987f7e5ab2d30fa6796b67b6d0bb7ce",
+      "sha256_entrega": "9a959f84f73c26e4d0d8dbfac34777abdd8dc27955051286d4017aa20a5a3f97",
+      "status": "somente_insercoes"
+    },
+    {
+      "arquivo": "server.mjs",
+      "sha256_original": null,
+      "sha256_entrega": "6d83f1d35ae02daf568ed2340fa505cde89cbd533f379331a1944763fb961cda",
+      "status": "novo"
+    },
+    {
+      "arquivo": "tests/chatbot.test.mjs",
+      "sha256_original": null,
+      "sha256_entrega": "93e34aca74df29142ba4b654f8f4877ac7f58c5ed5fc5fbb1fd73cd42ed726e7",
+      "status": "novo"
+    }
+  ]
+}

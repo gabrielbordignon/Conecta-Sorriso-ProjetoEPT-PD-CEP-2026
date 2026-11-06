@@ -1,0 +1,44 @@
+/* HACKTECH: todos os seletores pertencem exclusivamente ao chatbot. */
+.cs-chat-launcher { position: fixed; right: 24px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 1200; display: flex; align-items: center; gap: 10px; padding: 13px 19px; border: 2px solid var(--white); border-radius: 999px; background: var(--blue); color: #fff; box-shadow: var(--shadow); font-weight: 750; }
+.cs-chat-launcher svg { width: 24px; height: 24px; }
+.cs-chat { position: fixed; inset: auto 20px max(20px, env(safe-area-inset-bottom)) auto; margin: 0; padding: 0; width: min(430px, calc(100vw - 24px)); max-width: none; height: min(720px, calc(100dvh - 40px)); max-height: calc(100dvh - 24px); border: 1px solid var(--line); border-radius: 22px; background: var(--white); color: var(--text); box-shadow: 0 20px 65px #073b6633; font: inherit; overflow: hidden; }
+.cs-chat[open] { display: flex; flex-direction: column; }
+.cs-chat::backdrop { background: #073b6625; }
+.cs-chat *, .cs-chat *::before, .cs-chat *::after { box-sizing: border-box; }
+.cs-chat-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 17px 18px; background: var(--blue); color: #fff; flex-shrink: 0; }
+.cs-chat-header h2 { margin: 0 0 3px; color: #fff; font-size: 1.05rem; letter-spacing: normal; }
+.cs-chat-mode { margin: 0; color: #fff; font-size: .78rem; }
+.cs-chat-close { border: 1px solid #ffffff80; border-radius: 50%; background: transparent; color: #fff; width: 44px; min-width: 44px; font-size: 1.5rem; }
+.cs-chat-log { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px; background: var(--background); }
+.cs-chat-message { margin-bottom: 14px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 15px 15px 15px 4px; background: var(--white); font-size: .9rem; overflow-wrap: anywhere; }
+.cs-chat-message p { margin: 0; white-space: pre-wrap; }
+.cs-chat-speaker { display: block; margin-bottom: 5px; color: var(--blue-dark); font-size: .74rem; }
+.cs-chat-message.cs-chat-user { margin-left: 28px; border-radius: 15px 15px 4px 15px; background: var(--soft-blue); }
+.cs-chat-message.cs-chat-alert { border: 2px solid var(--danger); }
+.cs-chat-card { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.cs-chat-card h3 { margin: 0 0 6px; font-size: .94rem; }
+.cs-chat-card p { margin: 5px 0; font-size: .82rem; }
+.cs-chat-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.cs-chat-link { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border: 1px solid var(--blue); border-radius: 9px; color: var(--blue); font-weight: 700; font-size: .82rem; text-decoration: none; }
+.cs-chat-options { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 12px; background: var(--background); }
+.cs-chat-options:empty { display: none; }
+.cs-chat-option { max-width: 100%; padding: 8px 11px; border: 1px solid var(--line); border-radius: 12px; color: var(--blue-dark); background: var(--white); text-align: left; font-size: .8rem; }
+.cs-chat-option:hover, .cs-chat-link:hover { background: var(--soft-blue); }
+.cs-chat-form { flex-shrink: 0; padding: 12px 16px; border-top: 1px solid var(--line); }
+.cs-chat-form label { display: block; font-size: .78rem; font-weight: 700; margin-bottom: 5px; }
+.cs-chat-compose { display: flex; align-items: stretch; gap: 8px; }
+.cs-chat-input { width: 100%; min-width: 0; min-height: 54px; max-height: 110px; resize: vertical; padding: 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: .85rem; background: var(--white); color: var(--text); }
+.cs-chat-send { align-self: stretch; padding: 8px 12px; border: none; border-radius: 10px; color: #fff; background: var(--blue); font-size: .85rem; font-weight: 700; }
+.cs-chat button:disabled { opacity: .6; cursor: default; }
+.cs-chat-status { margin: 5px 0 0; min-height: 1.2em; color: var(--muted); font-size: .73rem; }
+.cs-chat-footer { flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 0 16px 12px; }
+.cs-chat-footer p { flex: 1; margin: 0; color: var(--muted); font-size: .69rem; }
+.cs-chat-reset { border: 0; background: transparent; color: var(--blue); text-decoration: underline; font-size: .73rem; padding: 5px; }
+body.high-contrast .cs-chat-message.cs-chat-alert { border-color: #000; }
+@media (max-width: 480px) {
+  .cs-chat-launcher { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); padding: 11px 15px; font-size: .86rem; }
+  .cs-chat { inset: auto 8px max(8px, env(safe-area-inset-bottom)) 8px; width: calc(100vw - 16px); height: calc(100dvh - 16px); max-height: calc(100dvh - 16px); border-radius: 16px; }
+  .cs-chat-header { padding: 12px 14px; }
+}
+
+.cs-chat-form label[hidden] { display: none; }

@@ -1,0 +1,43 @@
+✔ emergência: Não consigo respirar (3.146833ms)
+✔ emergência: Estou com dificuldade para engolir (1.553209ms)
+✔ emergência: O sangramento não para (0.230917ms)
+✔ emergência: Não estou conseguindo respirar (0.116792ms)
+✔ emergência: Minha face está inchada até o olho (0.08275ms)
+✔ prioridade: Estou com dor muito forte (0.141333ms)
+✔ prioridade: Estou com febre e inchaço (0.09875ms)
+✔ prioridade: Sai pus do dente (0.048375ms)
+✔ negação não aciona urgência; mudança de oração preserva sinal positivo (0.066584ms)
+✔ negação de dinheiro ou prótese não oculta outro sintoma (0.100458ms)
+✔ histórico preserva risco mesmo depois de pedir uma clínica (1.008958ms)
+✔ acolhimento faz perguntas progressivas sem encaminhar cedo (0.23525ms)
+✔ resposta curta negativa à pergunta de sintomas permite prosseguir (0.099ms)
+✔ prótese no Portão prioriza bairro e somente IDs existentes (0.404667ms)
+✔ preferência pública não inventa gratuidade ou CEO (0.127458ms)
+✔ reparo não promete serviço específico não cadastrado (0.071708ms)
+✔ bairro sem correspondência não gera distância ou proximidade falsa (0.078333ms)
+✔ outra cidade não recebe indicação como se fosse Curitiba (0.157833ms)
+✔ recusa de localização permite continuar sem insistência (0.046083ms)
+✔ medicamento não gera prescrição e mantém encaminhamento (0.034125ms)
+✔ base sem serviço compatível não inventa clínicas (0.032291ms)
+✔ IA reconhece linguagem livre e pode corrigir intenção; regras mantêm piso de urgência (0.063083ms)
+✔ HTTP: três páginas, dados e assets servidos; chave e servidor inacessíveis (57.170375ms)
+✔ HTTP: ausência de chave retorna modo local identificado (9.985625ms)
+✔ HTTP: validação rejeita payloads, papéis, falta de consentimento e origem externa (6.113709ms)
+✔ HTTP: limite de frequência bloqueia excesso de chamadas (14.34975ms)
+✔ IA simulada: contrato Responses, store false, saída validada e contexto sem papéis promovidos (2.439958ms)
+✔ IA não é chamada para sinal de emergência reconhecido localmente (1.620583ms)
+✔ IA indisponível (falha) retorna fallback sem vazar erro (2.389917ms)
+✔ IA indisponível (recusa) retorna fallback sem vazar erro (2.283542ms)
+✔ IA indisponível (perfil-invalido) retorna fallback sem vazar erro (1.613292ms)
+✔ IA indisponível (incompleta) retorna fallback sem vazar erro (1.457834ms)
+✔ cuidados inicia conversa própria sem indicar clínicas prematuramente (0.160209ms)
+✔ prótese machucando recebe acolhimento e pergunta de segurança (0.108083ms)
+✔ cuidados não sobrepõe sinal de emergência (0.065875ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 209.100583
